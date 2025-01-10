@@ -4,6 +4,7 @@ const cron = require('node-cron');
 
 const fetchPrices = async () => {
   try {
+    console.log("fetching Started");
     const response = await axios.get(
       'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,matic-network&vs_currencies=usd&include_market_cap=true&include_24hr_change=true'
     );
