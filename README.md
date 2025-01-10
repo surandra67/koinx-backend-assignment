@@ -26,3 +26,6 @@ A backend system to fetch, store, and analyze cryptocurrency data using Node.js,
 ## API Endpoints
 - **GET** `/api/stats?coin=<coin>`: Fetch latest stats for the specified coin.
 - **GET** `/api/deviation?coin=<coin>`: Fetch standard deviation of the last 100 prices.
+
+## Deployed Link
+`https://koinx-backend-assignment-0bf0.onrender.com`
