@@ -13,9 +13,9 @@ exports.connectDB = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    console.log('Database connected successfully.');
+    console.log('Info: Database connected successfully.');
   } catch (error) {
-    console.error('Error connecting to MongoDB:', error.message);
+    console.error('Error: Error connecting to MongoDB:', error.message);
     process.exit(1); // Exit the application if the connection fails
   }
 };

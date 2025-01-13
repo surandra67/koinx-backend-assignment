@@ -20,7 +20,14 @@ app.use(express.json());
 // Routes
 app.use('/api', apiRoutes);
 
+app.get("/", (req, res) =>{
+    return res.json({
+        success:true,
+        message:"Info: Server is up and running",
+    })
+})
+
 app.listen(PORT,()=>{
-    console.log(`Server Started at ${PORT}`);
+    console.log(`Info: Server Started at ${PORT}`);
 })
 

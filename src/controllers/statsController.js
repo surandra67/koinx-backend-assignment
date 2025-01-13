@@ -6,13 +6,13 @@ exports.getStats = async (req, res) => {
         const { coin } = req.query;
         if (!coin) return res.status(400).json({
             success:false,
-            message: 'Coin query parameter is required.' 
+            message: 'Error: Coin query parameter is required.' 
             });
     
         const latestData = await CryptoData.findOne({ coin }).sort({ createdAt: -1 });
         if (!latestData) return res.status(404).json({ 
             success:false,
-            message: 'No data found for the requested coin.' 
+            message: 'Error: No data found for the requested coin.' 
         });
     
         res.status(200).json({

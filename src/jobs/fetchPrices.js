@@ -5,9 +5,7 @@ const cron = require('node-cron');
 const fetchPrices = async () => {
   try {
     console.log("fetching Started");
-    const response = await axios.get(
-      'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,matic-network&vs_currencies=usd&include_market_cap=true&include_24hr_change=true'
-    );
+    const response = await axios.get(`${process.env.API_URL}`);
 
     const data = response.data;
     const coins = Object.keys(data);
@@ -22,7 +20,13 @@ const fetchPrices = async () => {
     await CryptoData.insertMany(records);
     console.log('Crypto data fetched and saved.');
   } catch (error) {
-    console.error('Error fetching prices:', error.message);
+
+    console.error(error.message);
+    return res.status(500).json({
+      success: false,
+      message: "Erroe: Error while fetching prices"
+    })
+   
   }
 };
 
